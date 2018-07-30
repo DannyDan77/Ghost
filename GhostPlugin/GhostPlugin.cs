@@ -21,7 +21,7 @@ namespace Ghost
 
         public override void Initialize()
         {
-            Commands.ChatCommands.Add(new Command("ghost.ghost", OnGhost, "ghost"));
+            Commands.ChatCommands.Add(new Command("ghost.ghost", OnGhost, "ghost", "vanish"));
         }
         void OnGhost(CommandArgs args)
         {
@@ -35,7 +35,7 @@ namespace Ghost
                 NetMessage.SendData(4, -1, args.Player.Index, null, args.Player.Index);
                 NetMessage.SendData(13, -1, args.Player.Index, null, args.Player.Index);
             }
-            args.Player.SendSuccessMessage($"{(args.TPlayer.active ? "Dis" : "En")}abled Ghost.");
+            args.Player.SendSuccessMessage($"{(args.TPlayer.active ? "Dis" : "En")}abled Vanish.");
         }
 
         protected override void Dispose(bool disposing)
